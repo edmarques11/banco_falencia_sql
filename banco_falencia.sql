@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS fatura (
     valor FLOAT NOT NULL,
     parcela INT NOT NULL,
     data_vencimento DATE NOT NULL,
-    cartao_id INT UNSIGNED NOT NULL,
+    cartao_id INT UNSIGNED NOT NULL UNIQUE,
     FOREIGN KEY (cartao_id) REFERENCES cartao (id),
     PRIMARY KEY (id)
 );
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS conta (
     tipo_conta ENUM('cp', 'cc'),
     agencia_com_digito VARCHAR(6) NOT NULL UNIQUE,
     numero_com_digito VARCHAR(11) NOT NULL UNIQUE,
-    cliente_id INT UNSIGNED NOT NULL,
+    cliente_id INT UNSIGNED NOT NULL UNIQUE,
     FOREIGN KEY (cliente_id) REFERENCES cliente (id),
     PRIMARY KEY (id)
 );
@@ -84,4 +84,12 @@ CREATE TABLE IF NOT EXISTS transacoes (
     conta_id INT UNSIGNED NOT NULL,
     FOREIGN KEY (conta_id) REFERENCES conta (id),
     PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS transacoes_conta (
+    id_transacao INT UNSIGNED NOT NULL,
+    id_conta INT UNSIGNED NOT NULL,
+    FOREIGN KEY (id_transacao) REFERENCES transacoes (id),
+    FOREIGN KEY (id_conta) REFERENCES conta (id),
+    PRIMARY KEY (id_transacao, id_conta)
 );
