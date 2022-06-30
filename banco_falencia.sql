@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS endereco (
 CREATE TABLE IF NOT EXISTS cliente (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nome VARCHAR(255),
-    cpf_cnpj VARCHAR(11) NOT NULL,
+    cpf_cnpj VARCHAR(14) NOT NULL UNIQUE,
     razao_social VARCHAR(255),
     apelido VARCHAR(100),
     endereco_id INT UNSIGNED NOT NULL,
@@ -27,12 +27,12 @@ CREATE TABLE IF NOT EXISTS cliente (
 
 CREATE TABLE IF NOT EXISTS cartao (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    numero_cartao CHAR(16) NOT NULL,
+    numero_cartao CHAR(16) NOT NULL UNIQUE,
     codigo_seguranca CHAR(3) NOT NULL,
     data_validade DATE NOT NULL,
     tipo_cartao ENUM('debito', 'credito', 'multiplo') NOT NULL,
     cartao_virtual ENUM('sim','nao') NOT NULL,
-    limite NUMERIC(5,2) NOT NULL,
+    limite NUMERIC(5,2),
     cliente_id INT UNSIGNED NOT NULL,
     FOREIGN KEY (cliente_id) REFERENCES cliente (id),
     PRIMARY KEY (id)
