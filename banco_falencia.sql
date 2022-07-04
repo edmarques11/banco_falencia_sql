@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS fatura (
     valor FLOAT NOT NULL,
     parcelas INT NOT NULL,
     data_vencimento DATE NOT NULL,
-    cartao_id INT UNSIGNED NOT NULL UNIQUE,
+    cartao_id INT UNSIGNED NOT NULL,
     FOREIGN KEY (cartao_id) REFERENCES cartao (id),
     PRIMARY KEY (id)
 );
