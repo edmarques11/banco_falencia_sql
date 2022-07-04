@@ -67,24 +67,24 @@ VALUES
   ('Banco da miseria', 'pj', 'cc', '47432257000186', 'Sophia Andrade', '4324333', '1346998273');
 
 INSERT
-  INTO transacoes(tipo_transacao, valor_transacao)
+  INTO transacoes(tipo_transacao, valor_transacao, transacao_interna)
 VALUES
-  ('deposito', 250),
-  ('saque', 255),
-  ('saque', 260),
-  ('deposito', 290),
-  ('saque', 120),
-  ('deposito', 200),
-  ('deposito', 250),
-  ('saque', 500),
-  ('deposito', 250),
-  ('transferencia', 255),
-  ('transferencia', 260),
-  ('transferencia', 290),
-  ('transferencia', 120),
-  ('transferencia', 200),
-  ('transferencia', 250),
-  ('transferencia', 500);
+  ('deposito', 250, 'sim'),
+  ('saque', 255, 'sim'),
+  ('saque', 260, 'sim'),
+  ('deposito', 290, 'sim'),
+  ('saque', 120, 'sim'),
+  ('deposito', 200, 'sim'),
+  ('deposito', 250, 'sim'),
+  ('saque', 500, 'sim'),
+  ('deposito', 250, 'sim'),
+  ('transferencia', 255, 'sim'),
+  ('transferencia', 260, 'sim'),
+  ('transferencia', 290, 'nao'),
+  ('transferencia', 120, 'nao'),
+  ('transferencia', 200, 'nao'),
+  ('transferencia', 250, 'nao'),
+  ('transferencia', 500, 'nao');
 
 INSERT
   INTO transacoes_conta(id_transacao, id_conta_interna_saida)
@@ -143,3 +143,9 @@ VALUES
   (33, 6, '2022/02/02', 8),
   (78, 2, '2022/04/21', 6),
   (15.98, 1, '2022/06/29', 6);
+
+INSERT
+  INTO compras_fatura(id_compra, id_fatura)
+VALUES
+  (1, 2), (2, 1), (3, 1), (6, 4), (4, 4),
+  (5, 4), (7, 4), (8, 5), (9, 7), (10, 2);
