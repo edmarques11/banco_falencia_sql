@@ -113,12 +113,12 @@ INSERT
   INTO compras(valor_total, parcelas, juros_porcentagem, estabelecimento, data_compra)
 VALUES
   (20, 1, 0, 'Budega do paulo', '2024/01/28'),
-  (10, 2, 1, 'Supermercado Barra dura', '2024/01/29'),
-  (80, 1, 0, 'Posto petroleo', '2024/02/28'),
+  (10, 2, 0.1, 'Supermercado Barra dura', '2024/01/29'),
+  (80, 1, 0.03, 'Posto petroleo', '2024/02/28'),
   (120, 1, 0, 'Bar da esquina', '2024/03/28'),
-  (20, 1, 0, 'Quitanga do paulo', '2024/01/12'),
+  (20, 1, 0.01, 'Quitanga do paulo', '2024/01/12'),
   (200, 1, 0, 'Bar do João', '2024/01/28'),
-  (20, 1, 0, 'Sorveteria preta', '2024/12/11'),
-  (20, 1, 0, 'Açaí do nordeste', '2024/01/15'),
-  (20, 1, 0, 'Cabana dance', '2024/01/14'),
+  (20, 1, 0.2, 'Sorveteria preta', '2024/12/11'),
+  (20, 1, 0.04, 'Açaí do nordeste', '2024/01/15'),
+  (20, 1, 0.03, 'Cabana dance', '2024/01/14'),
   (20, 1, 0, 'Cinema olho vivo', '2024/05/09');

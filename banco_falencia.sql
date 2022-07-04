@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS cartao (
     data_validade DATE NOT NULL,
     tipo_cartao ENUM('debito', 'credito', 'multiplo') NOT NULL,
     cartao_virtual ENUM('sim','nao') NOT NULL,
-    limite NUMERIC(7,2),
+    limite DECIMAL(7,2),
     cliente_id INT UNSIGNED NOT NULL,
     FOREIGN KEY (cliente_id) REFERENCES cliente (id),
     PRIMARY KEY (id)
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS compras (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     valor_total FLOAT NOT NULL,
     parcelas INT NOT NULL,
-    juros_porcentagem NUMERIC(2,2),
+    juros_porcentagem DECIMAL(5,4),
     estabelecimento VARCHAR(100) NOT NULL,
     data_compra DATE NOT NULL,
     PRIMARY KEY (id)
