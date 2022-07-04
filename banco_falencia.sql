@@ -100,10 +100,14 @@ CREATE TABLE IF NOT EXISTS transacoes (
 CREATE TABLE IF NOT EXISTS transacoes_conta (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     id_transacao INT UNSIGNED NOT NULL,
-    id_conta INT UNSIGNED,
-    id_conta_externa_transacao INT UNSIGNED,
+    id_conta_interna_saida INT UNSIGNED,
+    id_conta_interna_entrada INT UNSIGNED,
+    id_conta_externa_saida INT UNSIGNED,
+    id_conta_externa_entrada INT UNSIGNED,
     FOREIGN KEY (id_transacao) REFERENCES transacoes (id),
-    FOREIGN KEY (id_conta) REFERENCES conta (id),
-    FOREIGN KEY (id_conta_externa_transacao) REFERENCES conta_externa_transacao (id),
+    FOREIGN KEY (id_conta_interna_saida) REFERENCES conta (id),
+    FOREIGN KEY (id_conta_interna_entrada) REFERENCES conta (id),
+    FOREIGN KEY (id_conta_externa_saida) REFERENCES conta_externa_transacao (id),
+    FOREIGN KEY (id_conta_externa_entrada) REFERENCES conta_externa_transacao (id),
     PRIMARY KEY (id)
 );

@@ -87,27 +87,34 @@ VALUES
   ('transferencia', 500);
 
 INSERT
-  INTO transacoes_conta(id_transacao, id_conta)
+  INTO transacoes_conta(id_transacao, id_conta_interna_saida)
 VALUES
-  (1, 1),
   (1, 2),
-  (2, 2),
-  (3, 4),
-  (4, 5),
-  (5, 5),
-  (5, 6),
-  (8, 7);
+  (8, 3);
 
 INSERT
-  INTO transacoes_conta(id_transacao, id_conta_externa_transacao)
+  INTO transacoes_conta(id_transacao, id_conta_interna_entrada)
 VALUES
   (1, 1),
-  (1, 2),
-  (2, 2),
-  (3, 4),
-  (4, 5),
-  (5, 7),
-  (5, 6);
+  (5, 4);
+
+INSERT
+  INTO transacoes_conta(id_transacao, id_conta_interna_saida, id_conta_interna_entrada)
+VALUES
+  (10, 1, 2),
+  (11, 6, 2);
+
+INSERT
+  INTO transacoes_conta(id_transacao, id_conta_interna_saida, id_conta_externa_entrada)
+VALUES
+  (12, 1, 1),
+  (13, 6, 4);
+
+INSERT
+  INTO transacoes_conta(id_transacao, id_conta_externa_saida, id_conta_interna_entrada)
+VALUES
+  (14, 1, 4),
+  (15, 6, 8);
 
 INSERT
   INTO compras(valor_total, parcelas, juros_porcentagem, estabelecimento, data_compra)
